@@ -5,7 +5,8 @@
   color: cyan;
 }
 
-img{
+img
+{
   border: solid 3px red;
 }
 
@@ -13,7 +14,9 @@ img{
 {
   background-color: black;
 }
-.btn{
+
+.btn
+{
   background-color: darkmagenta;
 }
 
@@ -26,10 +29,12 @@ ul
 {
   list-style: none;
 }
+
 ol
 {
   list-style: none;
 }
+
 a
 {
   color: chartreuse;

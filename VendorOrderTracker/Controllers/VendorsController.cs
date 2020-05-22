@@ -61,9 +61,6 @@ namespace VendorOrderTracker.Controllers
           dayList[1] = date[i + 1].ToString();
         }
       }
-
-
-
       string year = string.Join("", yearList);
       string month = string.Join("", monthList);
       string day = string.Join("", dayList);

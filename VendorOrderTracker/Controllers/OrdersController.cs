@@ -21,7 +21,6 @@ namespace VendorOrderTracker.Controllers
       Dictionary<string, object> model = new Dictionary<string, object>();
       model.Add("order", order);
       model.Add("vendor", vendor);
-
       return View(model);
     }
   }

@@ -1,16 +1,12 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Globalization;
 using VendorOrderTracker.Models;
+
 namespace VendorOrderTracker.Tests
 {
   [TestClass]
   public class OrderTests : IDisposable
   {
-    public void Dispose()
-    {
-
-    }
 
     [TestMethod]
     public void OrderConstructor_InstanceOfOrderCreated_Order()
@@ -33,7 +29,7 @@ namespace VendorOrderTracker.Tests
       Assert.AreEqual(description, newOrder.Description);
       Assert.AreEqual(quantity, newOrder.Quantity);
       Assert.AreEqual(price, newOrder.Price);
-      Assert.AreEqual(date1, newOrder.Date);
+      Assert.AreEqual(date1, newOrder.DateOf);
     }
     [TestMethod]
     public void OrderConstructor_PropertiesCreatedOnIntantiationOverloadedPrice_StringStringIntIntDate()
@@ -47,11 +43,7 @@ namespace VendorOrderTracker.Tests
       Assert.AreEqual(description, newOrder.Description);
       Assert.AreEqual(quantity, newOrder.Quantity);
       Assert.AreEqual(80.00m, newOrder.Price);
-      Assert.AreEqual(date1, newOrder.Date);
+      Assert.AreEqual(date1, newOrder.DateOf);
     }
-
-
   }
-
-
 }

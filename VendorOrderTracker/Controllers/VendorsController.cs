@@ -14,7 +14,7 @@ namespace VendorOrderTracker.Controllers
       return View(vendorList);
     }
 
-    [HttpGet("vendors/new")]
+    [HttpGet("/vendors/new")]
     public ActionResult New()
     {
       return View();
@@ -37,7 +37,7 @@ namespace VendorOrderTracker.Controllers
       model.Add("orders", orders);
       return View(model);
     }
-    //string description, int quantity, decimal price, DateTime date
+
     [HttpPost("/vendors/{vendorId}/orders")]
     public ActionResult Create(int vendorId, string orderName, string description, int quantity, decimal price, string date)
     {
@@ -72,15 +72,12 @@ namespace VendorOrderTracker.Controllers
 
       if (success)
       {
-
         newDate = new DateTime(int.Parse(year), int.Parse(month), int.Parse(day));
-
       }
       else
       {
         newDate = new DateTime(1969, 05, 24);
       }
-
 
       Dictionary<string, object> model = new Dictionary<string, object>();
       Vendor foundVendor = Vendor.Find(vendorId);
@@ -100,8 +97,5 @@ namespace VendorOrderTracker.Controllers
       model.Add("vendor", foundVendor);
       return View("Show", model);
     }
-
-
   }
-
 }

@@ -1,9 +1,36 @@
 #theBod
 {
+  text-align: center;
   background-color: black;
   color: cyan;
 }
 
 img{
   border: solid 3px red;
+}
+
+.jumbotron
+{
+  background-color: black;
+}
+.btn{
+  background-color: darkmagenta;
+}
+
+.frm
+{
+  background-color: darkred;
+}
+
+ul
+{
+  list-style: none;
+}
+ol
+{
+  list-style: none;
+}
+a
+{
+  color: chartreuse;
 }

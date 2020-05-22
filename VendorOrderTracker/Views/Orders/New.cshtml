@@ -1,0 +1,22 @@
+@{
+  Layout = "_Layout";
+}
+string name, string description, int quantity, decimal price, DateTime date
+
+<div class="container">
+  <form action="/vendors/@Model.Id/orders"  method="post" >
+    <input id="vendorId" name="vendorId" type="hidden" value="@Model.Id">
+    <label for="orderName" > Enter product type (cookies, croissants, muffins):</label>
+    <input type="text" name="orderName" id="orderName" required>
+    <label for="description" > Brief description:</label>
+    <input type="text" name="description" id="description" required>   
+    <button type="submit"> Submit </button>
+    <label for="quantity">quantity: </label>
+    <input type="number" name="quantity" id="quantity" required>
+    <label for="price">Total cost: </label>
+    <input type="number" step="0.01" name="price" id="price" placeholder="optional">
+    <label for="date">relevant date: </label>
+    <input type="date" id="date" name="date" value="yyyy-mm-dd">
+    <button type="submit">Add Order</button>
+  </form> 
+</div>

@@ -26,5 +26,11 @@ namespace VendorOrderTracker.Models
       Id = _currentId;
       _instances.Add(this);
     }
+
+    public static void ClearAll()
+    {
+      _instances.Clear();
+      _currentId = 0;
+    }
   }
 }

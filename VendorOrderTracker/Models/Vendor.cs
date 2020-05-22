@@ -6,7 +6,7 @@ namespace VendorOrderTracker.Models
   {
     public string Name { get; set; }
     public string Description { get; set; }
-    //public List<Order> Orders = new List<Order> { };
+    public List<Order> Orders = new List<Order> { };
     public int Id { get; }
     private static int _currentId = 0;
     private static List<Vendor> _instances = new List<Vendor> { };
@@ -32,5 +32,31 @@ namespace VendorOrderTracker.Models
       _instances.Clear();
       _currentId = 0;
     }
+
+    public void AddOrder(Order order)
+    {
+      Orders.Add(order);
+    }
+
+
+    public static List<Vendor> GetAll()
+    {
+      return _instances;
+    }
+
+    public static Vendor Find(int id)
+    {
+      Vendor vendor = null;
+      foreach (Vendor v in _instances)
+      {
+        if (v.Id == id)
+        {
+          vendor = v;
+        }
+      }
+      return vendor;
+    }
+
+
   }
 }

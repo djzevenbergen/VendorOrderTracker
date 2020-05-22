@@ -51,11 +51,27 @@ namespace VendorOrderTracker.Models
         default:
           unitPrice = 3.00m;
           break;
-
       }
-
       return unitPrice * quantity;
+    }
 
+    public static List<Record> GetAll()
+    {
+      return _instances;
+    }
+
+    public static Order Find(int id)
+    {
+      Order ord = null;
+      foreach (Order o in _instances)
+      {
+
+        if (o.Id == id)
+        {
+          ord = o;
+        }
+      }
+      return ord;
     }
   }
 }

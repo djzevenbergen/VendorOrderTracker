@@ -5,7 +5,7 @@ using VendorOrderTracker.Models;
 namespace VendorOrderTracker.Tests
 {
   [TestClass]
-  public class OrderTests : IDisposable
+  public class OrderTests
   {
 
     [TestMethod]

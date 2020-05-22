@@ -14,15 +14,14 @@ namespace VendorOrderTracker.Models
 
     private static List<Order> _instances = new List<Order> { };
 
-    public Order(string name, string description, int quantity, DateTime date)
+    public Order(string name, string description, int quantity, decimal price, DateTime date)
     {
       Name = name;
       Description = description;
       Quantity = quantity;
-      Price = 0;
+      Price = price;
       Date = date;
       _instances.Add(this);
-
     }
 
   }

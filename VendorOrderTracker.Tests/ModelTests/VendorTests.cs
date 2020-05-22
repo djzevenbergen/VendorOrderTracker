@@ -27,5 +27,15 @@ namespace VendorOrderTracker.Tests
       Assert.AreEqual(des, newVendor.Description);
       Assert.AreEqual(1, newVendor.Id);
     }
+
+    [TestMethod]
+    public void AddOrder_AddsOrderToVendor_Order()
+    {
+      DateTime newDate = new DateTime(2020, 3, 3);
+      Order testOrder = new Order("", "", 0, 0.00m, newDate);
+      Vendor testVendor = new Vendor("hi", "hi");
+      testVendor.AddOrder(testOrder);
+      Assert.AreEqual(testOrder, testVendor.Orders[0]);
+    }
   }
 }

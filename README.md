@@ -3,13 +3,13 @@
 #### _Basic web application to store Orders under specific Vendors. 5/22/2020_
 
 ### Made by DJ Zevenbergen
-## Description
 
+
+## Description
 _This C#/.NET Core MVC application allows the user to create vendors, and then create orders to be categorized under those specific vendors. It allows the user to see specific details about any order on click. It uses BDD to guide the design of the UI and TDD to guide the design of the Models logic._
 
 
 ## Setup/Installation Requirements
-
 * Clone repository from GitHub in terminal or console
 * ensure that C#/.netcore2.2 is installed on your computer
 * in the terminal navigate to the project's root directory
@@ -19,7 +19,6 @@ _This C#/.NET Core MVC application allows the user to create vendors, and then c
 
 
 ## Specs
-
 1. User is presented with a homepage, and given the option to see go to the Vendors page
   * Input: "Go to vendors page"
   * Output: "/vendors"
@@ -44,7 +43,6 @@ _This C#/.NET Core MVC application allows the user to create vendors, and then c
   * Output: "/vendors/{id}"
 
 ## Support
-
 _Open an issue_
 
 
@@ -52,7 +50,6 @@ _Open an issue_
 C#/ASP.NET Core 
 
 ### License
-
 This project is licensed under the MIT License
 
 Copyright (c) 2020 **_DJ Zevenbergen_**

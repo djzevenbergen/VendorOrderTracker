@@ -21,9 +21,9 @@ namespace VendorOrderTracker.Controllers
     }
 
     [HttpPost("/vendors")]
-    public ActionResult Create(string Name, string description)
+    public ActionResult Create(string name, string description)
     {
-      Vendor newVendor = new Vendor(Name, description);
+      Vendor newVendor = new Vendor(name, description);
       return RedirectToAction("Index");
     }
 
@@ -37,17 +37,51 @@ namespace VendorOrderTracker.Controllers
       model.Add("orders", orders);
       return View(model);
     }
-
+    //string description, int quantity, decimal price, DateTime date
     [HttpPost("/vendors/{vendorId}/orders")]
-    public ActionResult Create(int vendorId, string orderName)
+    public ActionResult Create(int vendorId, string orderName, string description, int quantity, decimal price, string date)
     {
+      string[] yearList = { "", "", "", "" };
+      string[] monthList = { "", "" };
+      string[] dayList = { "", "" };
+      for (int i = 0; i < 10; i++)
+      {
+        if (i < 4)
+        {
+          yearList[i] = date[i].ToString();
+        }
+        else if (i > 4 && i < 7)
+        {
+          monthList[i] = date[i].ToString();
+        }
+        else if (i > 7 && i < 10)
+        {
+          dayList[i] = date[i].ToString();
+        }
+      }
+
+      string year = string.Join("", yearList);
+      string month = string.Join("", monthList);
+      string day = string.Join("", dayList);
+
+      DateTime newDate = new DateTime(int.Parse(year), int.Parse(month), int.Parse(day));
+
       Dictionary<string, object> model = new Dictionary<string, object>();
       Vendor foundVendor = Vendor.Find(vendorId);
-      Order newOrder = new Order(OrderName);
-      foundvendor.AddOrder(newOrder);
+      Order newOrder = null;
+      if (price != 0.00m)
+      {
+        newOrder = new Order(orderName, description, quantity, price, newDate);
+      }
+      else
+      {
+        newOrder = new Order(orderName, description, quantity, newDate);
+      }
+
+      foundVendor.AddOrder(newOrder);
       List<Order> orders = foundVendor.Orders;
       model.Add("orders", orders);
-      model.Add("vendor", foundvendor);
+      model.Add("vendor", foundVendor);
       return View("Show", model);
     }
 

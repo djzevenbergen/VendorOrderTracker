@@ -44,6 +44,7 @@ namespace VendorOrderTracker.Controllers
       string[] yearList = { "", "", "", "" };
       string[] monthList = { "", "" };
       string[] dayList = { "", "" };
+
       for (int i = 0; i < 10; i++)
       {
         if (i < 4)
@@ -61,6 +62,7 @@ namespace VendorOrderTracker.Controllers
           dayList[1] = date[i + 1].ToString();
         }
       }
+
       string year = string.Join("", yearList);
       string month = string.Join("", monthList);
       string day = string.Join("", dayList);
@@ -82,6 +84,7 @@ namespace VendorOrderTracker.Controllers
       Dictionary<string, object> model = new Dictionary<string, object>();
       Vendor foundVendor = Vendor.Find(vendorId);
       Order newOrder = null;
+
       if (price != 0.00m)
       {
         newOrder = new Order(orderName, description, quantity, price, newDate);

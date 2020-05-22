@@ -10,6 +10,9 @@ namespace VendorOrderTracker.Models
     public int Quantity { get; set; }
     public decimal Price { get; set; }
 
+    public int Id { get; set; }
+
+    private static int _currentId = 0;
     public DateTime Date = new DateTime();
 
     private static List<Order> _instances = new List<Order> { };
@@ -18,6 +21,8 @@ namespace VendorOrderTracker.Models
     {
       Name = name;
       Description = description;
+      _currentId++;
+      Id = _currentId;
       Quantity = quantity;
       Price = CalculatePrice(name, quantity);
       Date = date;
@@ -27,6 +32,8 @@ namespace VendorOrderTracker.Models
     {
       Name = name;
       Description = description;
+      _currentId++;
+      Id = _currentId;
       Quantity = quantity;
       Price = price;
       Date = date;
@@ -55,9 +62,15 @@ namespace VendorOrderTracker.Models
       return unitPrice * quantity;
     }
 
-    public static List<Record> GetAll()
+    public static List<Order> GetAll()
     {
       return _instances;
+    }
+
+    public static ClearAll()
+    {
+      _instances.Clear();
+      _currentId = 0;
     }
 
     public static Order Find(int id)

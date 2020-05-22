@@ -35,6 +35,21 @@ namespace VendorOrderTracker.Tests
       Assert.AreEqual(price, newOrder.Price);
       Assert.AreEqual(date1, newOrder.Date);
     }
+    [TestMethod]
+    public void OrderConstructor_PropertiesCreatedOnIntantiationOverloadedPrice_StringStringIntIntDate()
+    {
+      DateTime date1 = new DateTime(2020, 5, 25);
+      string name = "Croissants";
+      string description = "Underdone";
+      int quantity = 40;
+      Order newOrder = new Order(name, description, quantity, date1);
+      Assert.AreEqual(name, newOrder.Name);
+      Assert.AreEqual(description, newOrder.Description);
+      Assert.AreEqual(quantity, newOrder.Quantity);
+      Assert.AreEqual(80.00m, newOrder.Price);
+      Assert.AreEqual(date1, newOrder.Date);
+    }
+
 
   }
 

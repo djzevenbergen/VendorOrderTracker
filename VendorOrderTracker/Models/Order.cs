@@ -14,6 +14,15 @@ namespace VendorOrderTracker.Models
 
     private static List<Order> _instances = new List<Order> { };
 
+    public Order(string name, string description, int quantity, DateTime date)
+    {
+      Name = name;
+      Description = description;
+      Quantity = quantity;
+      Price = CalculatePrice(name, quantity);
+      Date = date;
+      _instances.Add(this);
+    }
     public Order(string name, string description, int quantity, decimal price, DateTime date)
     {
       Name = name;
@@ -24,5 +33,29 @@ namespace VendorOrderTracker.Models
       _instances.Add(this);
     }
 
+    public static decimal CalculatePrice(string name, int quantity)
+    {
+      name = name.ToLower();
+      decimal unitPrice = 0.00m;
+      switch (name)
+      {
+        case "croissants":
+          unitPrice = 2.00m;
+          break;
+        case "cookies":
+          unitPrice = 1.50m;
+          break;
+        case "muffins":
+          unitPrice = 2.50m;
+          break;
+        default:
+          unitPrice = 3.00m;
+          break;
+
+      }
+
+      return unitPrice * quantity;
+
+    }
   }
 }

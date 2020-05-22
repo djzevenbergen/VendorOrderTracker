@@ -50,21 +50,40 @@ namespace VendorOrderTracker.Controllers
         {
           yearList[i] = date[i].ToString();
         }
-        else if (i > 4 && i < 7)
+        else if (i == 5)
         {
-          monthList[i] = date[i].ToString();
+          monthList[0] = date[i].ToString();
+          monthList[1] = date[i + 1].ToString();
         }
-        else if (i > 7 && i < 10)
+        else if (i == 8)
         {
-          dayList[i] = date[i].ToString();
+          dayList[0] = date[i].ToString();
+          dayList[1] = date[i + 1].ToString();
         }
       }
+
+
 
       string year = string.Join("", yearList);
       string month = string.Join("", monthList);
       string day = string.Join("", dayList);
 
-      DateTime newDate = new DateTime(int.Parse(year), int.Parse(month), int.Parse(day));
+      DateTime newDate = new DateTime();
+
+      int number;
+      bool success = Int32.TryParse(year, out number);
+
+      if (success)
+      {
+
+        newDate = new DateTime(int.Parse(year), int.Parse(month), int.Parse(day));
+
+      }
+      else
+      {
+        newDate = new DateTime(1969, 05, 24);
+      }
+
 
       Dictionary<string, object> model = new Dictionary<string, object>();
       Vendor foundVendor = Vendor.Find(vendorId);
